@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title></title>
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="static/css/style.css" rel="stylesheet" type="text/css" >
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/handlebars.js"></script>
+		<script type="text/javascript" src="static/js/presentation.js"></script>
+	</head>
+	<body>
+
+		<form method="post" name="frm_search" id="frm_search" class="form-wrapper">
+		  	<input name="title" id="title" type="text" placeholder="Enter 'Title' to search presentations....">
+			<button type="button" name="btn_submit" id="btn_submit">
+				<i class="fa-li fa fa-spinner fa-spin"></i>Search
+			</button>
+			<div class="clear"></div>
+		</form>
+		<div class="results">
+			<div class="counter"></div>
+			<ul>
+			</ul>
+		</div>
+
+		<script id="presentation-item" type="text/x-handlebars-template">
+		{{#each presentations}}
+		  	<li class="item">
+				<div class="image-container">
+					loading image....
+					<img src="{{ thumbnail }}">
+				</div>
+				<h2>{{ title }}</h2>
+				<div class="details">
+					By: <a href="{{ creator_profile_url }}" target="_blank">{{ creator_name }}</a>
+				</div>
+				<div class="date">
+					last updated: {{ last_updated }}
+				</div>
+			</li>
+		{{/each}}
+		</script>
+
+	</body>
+</html>
